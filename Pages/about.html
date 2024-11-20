@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Hydro-Pulse Web</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <div class="splash-screen">
+        <div class="wrapper">
+            <div class="content-wrapper">
+                <div class="logo-container">
+                    <img src="/Images/Plant-Logo.svg" alt="Logo" id="plant-logo">
+                </div>
+
+                <div class="title-container">
+                    <h1 id="splash-title">Welcome to Hydro-Pulse</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="nav-container">
+            <div class="icon-container">
+                <img id="nav-logo" src="/Images/Plant-Logo.svg" alt="Logo">
+                <h2 id="nav-title">Hydro-Pulse</h2>
+            </div>
+
+            <div class="nav-buttons-container">
+                <ul>
+                    <li id="about"><a href="/Pages/about.html">
+                        <button>About</button>
+                    </li></a>
+                    <li id="features">
+                        <a>
+                            <button onclick="toggleDropdown()">Data</button>
+                        </a>
+                        <div id="dataDropdown" class="dropdown-content">
+                            <a href="/Pages/live.html">Live Data</a>
+                            <a href="/Pages/past-week.html">Weekly Data</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="about-box">
+            <p>The Smart-Hydro Project is an innovative initiative from Varsity College Durban North,
+                focused on developing a hydroponics-based plant system housed inside controlled tents. These systems
+                allow users to monitor and adjust various components like water, light, and temperature, while also
+                providing real-time data on plant health. The project aims to make sustainable farming technologies more
+                accessible to small-scale farmers, helping them grow crops efficiently in limited spaces.</p>
+            <div class="tech">
+                <ul>
+                    <h2 id="title">Technologies used in the making of this project:</h2>
+                    <li>
+                        <p>Google cloud services</p>
+                    </li>
+                    <li>
+                        <p>FireBase</p>
+                    </li>
+                    <li>
+                        <p>Arduino</p>
+                    </li>
+                    <li>
+                        <p>Ai Models</p>
+                    </li>
+                    <li>
+                        <p>React Native</p>
+                    </li>
+                    <li>
+                        <p>Android Studio</p>
+                    </li>
+                    <li>
+                        <p>Restful API using Django and Python</p>
+                    </li>
+                    <li>
+                        <p>HTML, CSS, PHP and JS</p>
+                    </li>
+                </ul>
+            </div>
+            <p>Our goal is to innovate yet remain simple in the way we design and build this project, making it easy to
+                use while also providing a great user experience to those who will appreciate the fancier features. <br>
+                <br>
+                As students, we’re not only designing and building the system but also continuously improving it through
+                hands-on experimentation and research. Our goal is to provide these systems to farmers for real-world
+                testing while contributing to a more sustainable future in agriculture in any way we can.
+            </p>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="box-images">
+                <div id="box-1"></div>
+                <div id="box-2"></div>
+            </div>
+
+            <div class="box-see-more">
+                <div id="box-3"></div>
+                <div id="see-more-btn-container"><a href="more.html"><button id="more-btn" aria-label="See more features"><p>See More</p></button></a></div>
+                <div id="box-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>

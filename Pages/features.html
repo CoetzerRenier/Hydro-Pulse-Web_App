@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Hydro-Pulse Web</title>
+</head>
+
+<body>
+    <div class="main-container-features">
+        <nav class="nav-container">
+            <div class="icon-container">
+                <img id="nav-logo" src="/Images/Plant-Logo.svg" alt="Logo">
+                <h2 id="nav-title">Hydro-Pulse</h2>
+            </div>
+
+            <div class="nav-buttons-container">
+                <ul>
+                    <li id="about">
+                        <a href="/Pages/about.html">
+                            <button>About</button>
+                        </a>
+                    </li>
+                    <li id="features">
+                        <a>
+                            <button onclick="toggleDropdown()">Data</button>
+                        </a>
+                        <div id="dataDropdown" class="dropdown-content">
+                            <a href="/Pages/live.html">Live Data</a>
+                            <a href="/Pages/past-week.html">Weekly Data</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <dic class="top-section">
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/PH.svg">
+                    </div>
+                    <span id="PH">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>PH Levels</p>
+                </div>
+            </div>
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/EC.svg">
+                    </div>
+                    <span id="EC">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>EC Levels</p>
+                </div>
+            </div>
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/Temperature.svg">
+                    </div>
+                    <span id="Temp">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>Temperature</p>
+                </div>
+            </div>
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/Humidity.svg">
+                    </div>
+                    <span id="Humidity">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/Fan.svg">
+                    </div>
+                    <span id="Fan">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>Fan</p>
+                </div>
+            </div>
+            <div class="card-cnt">
+                <div class="top-cnt">
+                    <div class="img-cnt">
+                        <img src="/Images/Light.svg">
+                    </div>
+                    <span id="Light">Loading</span>
+                </div>
+                <div class="bottom-cnt">
+                    <p>Light</p>
+                </div>
+            </div>
+        </dic>
+
+        <div class="left-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-title">PH</td>
+                        <td id="PH-1">Loading</td>
+                        <td id="PH-2">Loading</td>
+                        <td id="PH-3">Loading</td>
+                        <td id="PH-4">Loading</td>
+                        <td id="PH-5">Loading</td>
+                        <td id="PH-6">Loading</td>
+                        <td id="PH-7">Loading</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">EC</td>
+                        <td id="EC-1">Loading</td>
+                        <td id="EC-2">Loading</td>
+                        <td id="EC-3">Loading</td>
+                        <td id="EC-4">Loading</td>
+                        <td id="EC-5">Loading</td>
+                        <td id="EC-6">Loading</td>
+                        <td id="EC-7">Loading</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">Temperature</td>
+                        <td id="TEMP-1">Loading</td>
+                        <td id="TEMP-2">Loading</td>
+                        <td id="TEMP-3">Loading</td>
+                        <td id="TEMP-4">Loading</td>
+                        <td id="TEMP-5">Loading</td>
+                        <td id="TEMP-6">Loading</td>
+                        <td id="TEMP-7">Loading</td>
+                    </tr>
+                    <tr>
+                        <td class="td-title">Humidity</td>
+                        <td id="HUM-1">Loading</td>
+                        <td id="HUM-2">Loading</td>
+                        <td id="HUM-3">Loading</td>
+                        <td id="HUM-4">Loading</td>
+                        <td id="HUM-5">Loading</td>
+                        <td id="HUM-6">Loading</td>
+                        <td id="HUM-7">Loading</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="right-section">
+            <div class="image-feed-cnt">
+                <h1>Image Feed</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch('https://hydropulse-d9778.ew.r.appspot.com/api/sensor-data/latest')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('PH').innerHTML = `${data.PH}`;
+                document.getElementById('EC').innerHTML = `${data.EC}`;
+                document.getElementById('Temp').innerHTML = `${data.Temperature}`;
+                document.getElementById('Humidity').innerHTML = `${data.Humidity}`;
+            })
+            .catch(error => {
+                document.getElementById('PH').innerHTML = "Error";
+                document.getElementById('EC').innerHTML = "Error";
+                document.getElementById('Temp').innerHTML = "Error";
+                document.getElementById('Humidity').innerHTML = "Error";
+                console.error('Error:', error);
+            });
+
+        fetch('https://hydropulse-d9778.ew.r.appspot.com/api/sensor-data/last-week')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach((dayData, index) => {
+                document.getElementById(`PH-${index + 1}`).innerHTML = `${dayData.PH}`;
+                document.getElementById(`EC-${index + 1}`).innerHTML = `${dayData.EC}`;
+                document.getElementById(`TEMP-${index + 1}`).innerHTML = `${dayData.Temperature}`;
+                document.getElementById(`HUM-${index + 1}`).innerHTML = `${dayData.Humidity}`;
+            });
+        })
+            .catch(error => {
+                console.error('Error:', error);
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById(`PH-${i}`).innerHTML = "Error";
+                document.getElementById(`EC-${i}`).innerHTML = "Error";
+                document.getElementById(`TEMP-${i}`).innerHTML = "Error";
+                document.getElementById(`HUM-${i}`).innerHTML = "Error";
+            }
+        });
+    </script>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>
